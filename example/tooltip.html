@@ -1,0 +1,115 @@
+
+<html>
+  <body>
+
+    <style>
+
+    .d3-tooltip {
+      position: absolute;
+      z-index: 10000;
+      display: block;
+      background-color: rgba(0,0,0,.8);
+      color: #fff;
+      min-width: 100px;
+      max-width: 400px;
+      opacity: 0;
+      border-radius: 0;
+      height: auto;
+      padding: 4px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+
+      pointer-events: none;
+      -webkit-touch-callout: none;
+      user-select: none;
+    }
+
+
+    .d3-tooltip.d3-tooltip-gravity-n:before {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      margin-left: -10px;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid rgba(0,0,0,.8);
+    }
+
+    .d3-tooltip.d3-tooltip-gravity-s:after {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      margin-left: -10px;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid rgba(0,0,0,.8);
+    }
+
+    .d3-tooltip .d3-tooltip-key {
+      display: block;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .d3-tooltip .d3-tooltip-x {
+      display: inline-block;
+      padding: 5px;
+      font-weight: bold;
+    }
+    .d3-tooltip .d3-tooltip-y {
+      display: inline-block;
+      padding: 5px;
+      font-weight: bold;
+    }
+
+
+    #example {
+      position: relative;
+      top: 60px;
+      left: 80px;
+    }
+    #show_tooltip {
+      position: relative;
+      padding: 10px;
+      width: 120px;
+      height: 20px;
+      background-color: #aaa;
+    }
+    </style>
+
+    <div id="example">
+      <div id="show_tooltip">Show Tooltip</div>
+    </div>
+
+    <script src="https://d3js.org/d3-selection.v0.7.min.js"></script>
+
+    <script src="../build/d3-simple-tooltip.js"></script>
+
+    <script>
+
+    d3_selection.select('#show_tooltip')
+        .on('mouseover', showTooltip)
+        .on('mouseout', hideTooltip)
+
+    function showTooltip() {
+      d3_simple_tooltip.tooltip.show({
+        pos: [60, 0], // account for 1/2 width to center tooltip
+        content: '<div>Tooltip Content</div>',
+        gravity: 's',
+        dist: 20,
+        parent: d3_selection.select('#show_tooltip').node()
+      })
+    }
+
+    function hideTooltip() {
+      d3_simple_tooltip.tooltip.cleanup()
+    }
+
+    </script>
+
+  </body>
+</html>

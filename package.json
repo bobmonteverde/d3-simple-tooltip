@@ -1,0 +1,30 @@
+{
+  "name": "d3-simple-tooltip",
+  "version": "0.0.1",
+  "description": "Simple tooltip.",
+  "keywords": [
+    "d3"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "build/d3-simple-tooltip.js",
+  "jsnext:main": "index",
+  "homepage": "https://github.com/bobmonteverde/d3-simple-tooltip",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bobmonteverde/d3-simple-tooltip.git"
+  },
+  "scripts": {
+    "pretest": "rm -rf build && mkdir build && json2module package.json > build/package.js && rollup -c",
+    "test": "tape 'test/**/*-test.js'",
+    "prepublish": "npm run test && uglifyjs build/d3-simple-tooltip.js -c -m -o build/d3-simple-tooltip.min.js",
+    "postpublish": "zip -j build/d3-simple-tooltip.zip -- LICENSE README.md build/d3-simple-tooltip.js build/d3-simple-tooltip.min.js"
+  },
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "json2module": "0.0",
+    "rollup": "0.25",
+    "rollup-plugin-babel": "^2.4.0",
+    "tape": "4",
+    "uglify-js": "2"
+  }
+}
