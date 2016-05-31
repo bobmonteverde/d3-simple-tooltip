@@ -139,15 +139,14 @@ tooltip.show = function ({pos, content, gravity = 's', dist = 10, parent, classe
   body.appendChild(container)
 
   // These can't be calculated until the container is appended
-  let { left, top, grav } = calcPos(pos, container, gravity, dist)
-  gravity = grav
+  let t = calcPos(pos, container, gravity, dist)
 
   //TODO: decide if I need to set className twice
   container.className = 'd3-tooltip ' +
                         (classes ? classes : 'd3-xy-tooltip') +
-                        ' d3-tooltip-gravity-' + gravity
-  container.style.left          = left + 'px'
-  container.style.top           = top + 'px'
+                        ' d3-tooltip-gravity-' + t.gravity
+  container.style.left          = t.left + 'px'
+  container.style.top           = t.top + 'px'
   container.style.opacity       = 1
   container.style.position      = 'absolute'
   container.style.pointerEvents = 'none'
