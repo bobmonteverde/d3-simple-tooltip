@@ -1,6 +1,6 @@
 {
   "name": "d3-simple-tooltip",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple tooltip.",
   "keywords": [
     "d3"
@@ -20,11 +20,11 @@
     "postpublish": "zip -j build/d3-simple-tooltip.zip -- LICENSE README.md build/d3-simple-tooltip.js build/d3-simple-tooltip.min.js"
   },
   "devDependencies": {
-    "babel-preset-es2015-rollup": "^1.1.1",
-    "json2module": "0.0",
-    "rollup": "0.25",
-    "rollup-plugin-babel": "^2.4.0",
-    "tape": "4",
-    "uglify-js": "2"
+    "babel-preset-es2015-rollup": "1.1.x",
+    "json2module": "0.0.x",
+    "rollup": "0.26.x",
+    "rollup-plugin-babel": "2.4.x",
+    "tape": "4.5.x",
+    "uglify-js": "2.6.x"
   }
 }

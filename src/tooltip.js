@@ -169,7 +169,7 @@ tooltip.cleanup = function(delay = REMOVE_DELAY) {
 
   setTimeout(function() {
     while (removeMe = purging.pop()) {
-      removeMe.parentNode.removeChild(removeMe)
+      removeMe.parentNode && removeMe.parentNode.removeChild(removeMe)
     }
   }, delay)
 }
