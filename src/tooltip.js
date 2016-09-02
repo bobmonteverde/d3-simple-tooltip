@@ -61,7 +61,7 @@ function calcPos (pos, container, gravity = 's', dist = 10) {
       if (tTop < scrollTop) // check if top edge is off screen
         t.top  = scrollTop - tTop + t.top
       if (height > scrollTop + wSize.height - tTop) // check if bottom edge is off screen
-        t.top  = scrollTop + wSize.height - tTop - height
+        t.top  = scrollTop + wSize.height - height
       break
 
     case 'w':
@@ -74,7 +74,7 @@ function calcPos (pos, container, gravity = 's', dist = 10) {
       if (tTop < scrollTop) // check if top edge is off screen
         t.top  = scrollTop + 5
       if (height > scrollTop + wSize.height - tTop) // check if bottom edge is off screen
-        t.top  = scrollTop + wSize.height - tTop - height
+        t.top  = scrollTop + wSize.height - height
       break
 
     case 'n':
