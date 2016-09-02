@@ -60,8 +60,9 @@ function calcPos (pos, container, gravity = 's', dist = 10) {
                  : scrollLeft - tLeft + t.left
       if (tTop < scrollTop) // check if top edge is off screen
         t.top  = scrollTop - tTop + t.top
-      if (height > scrollTop + wSize.height - tTop) // check if bottom edge is off screen
-        t.top  = scrollTop + wSize.height - height
+      if (tTop > scrollTop + wSize.height - height) // check if bottom edge is off screen
+        //t.top  = scrollTop + wSize.height - height //TODO: figure out why I need to do 2 * height
+        t.top  = scrollTop + wSize.height - height * 2
       break
 
     case 'w':
@@ -73,8 +74,9 @@ function calcPos (pos, container, gravity = 's', dist = 10) {
         t.left = pos[0] - width - dist //TODO: flip gravity, consider checking if left is larger than right
       if (tTop < scrollTop) // check if top edge is off screen
         t.top  = scrollTop + 5
-      if (height > scrollTop + wSize.height - tTop) // check if bottom edge is off screen
-        t.top  = scrollTop + wSize.height - height
+      if (tTop > scrollTop + wSize.height - height) // check if bottom edge is off screen
+        //t.top  = scrollTop + wSize.height - height //TODO: figure out why I need to do 2 * height
+        t.top  = scrollTop + wSize.height - height * 2
       break
 
     case 'n':
