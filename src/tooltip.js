@@ -157,8 +157,8 @@ tooltip.show = function ({pos, content, gravity = 's', dist = 10, parent, classe
   return container
 }
 
-tooltip.cleanup = function(delay = REMOVE_DELAY) {
-  let tooltips = document.getElementsByClassName('d3-tooltip')
+tooltip.cleanup = function(delay = REMOVE_DELAY, selector) {
+  let tooltips = selector ? document.querySelectorAll('.d3-tooltip' + selector) : document.getElementsByClassName('d3-tooltip')
   let purging  = []
   let removeMe
 
